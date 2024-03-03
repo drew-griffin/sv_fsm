@@ -1,0 +1,360 @@
+# Compile of register.sv was successful.
+# Compile of comparator.sv was successful.
+# Compile of fsm.sv was successful.
+# Compile of findMax.sv was successful.
+# Compile of tb_findMax.sv was successful.
+# 5 compiles, 0 failed with no errors.
+run -all
+# ECE (System)Verilog workshop Fall 2022: findMax test - Drew Seidel (dseidel@pdx.edu)
+# Sources: N:/ece508/dseidel/hw2/prob2
+# 
+#                    0 state=RESET, next_state=RESET, start=0, inputA=xx, done=0, myMax=00, maxValue=00
+#                    6 state=RESET, next_state=CHECK, start=1, inputA=35, done=0, myMax=35, maxValue=00
+#                   16 state=CHECK, next_state=CHECK, start=1, inputA=a3, done=0, myMax=a3, maxValue=35
+#                   26 state=CHECK, next_state=CHECK, start=1, inputA=af, done=0, myMax=af, maxValue=a3
+#                   36 state=CHECK, next_state=CHECK, start=1, inputA=62, done=0, myMax=af, maxValue=af
+#                   46 state=CHECK, next_state=CHECK, start=1, inputA=07, done=0, myMax=af, maxValue=af
+#                   56 state=CHECK, next_state=CHECK, start=1, inputA=e7, done=0, myMax=e7, maxValue=af
+#                   66 state=CHECK, next_state=CHECK, start=1, inputA=4e, done=0, myMax=e7, maxValue=e7
+#                   76 state=CHECK, next_state=RESET, start=0, inputA=4e, done=1, myMax=e7, maxValue=e7
+# Correct max (e7) found
+#                   86 state=RESET, next_state=RESET, start=0, inputA=4e, done=0, myMax=e7, maxValue=e7
+#                   96 state=RESET, next_state=CHECK, start=1, inputA=64, done=0, myMax=64, maxValue=e7
+#                  106 state=CHECK, next_state=CHECK, start=1, inputA=32, done=0, myMax=64, maxValue=64
+#                  116 state=CHECK, next_state=CHECK, start=1, inputA=ad, done=0, myMax=ad, maxValue=64
+#                  126 state=CHECK, next_state=CHECK, start=1, inputA=48, done=0, myMax=ad, maxValue=ad
+#                  136 state=CHECK, next_state=CHECK, start=1, inputA=95, done=0, myMax=ad, maxValue=ad
+#                  146 state=CHECK, next_state=CHECK, start=1, inputA=ac, done=0, myMax=ad, maxValue=ad
+#                  156 state=CHECK, next_state=CHECK, start=1, inputA=eb, done=0, myMax=eb, maxValue=ad
+#                  166 state=CHECK, next_state=RESET, start=0, inputA=eb, done=1, myMax=eb, maxValue=eb
+# Correct max (eb) found
+#                  176 state=RESET, next_state=RESET, start=0, inputA=eb, done=0, myMax=eb, maxValue=eb
+#                  186 state=RESET, next_state=CHECK, start=1, inputA=6f, done=0, myMax=6f, maxValue=eb
+#                  196 state=CHECK, next_state=CHECK, start=1, inputA=af, done=0, myMax=af, maxValue=6f
+#                  206 state=CHECK, next_state=CHECK, start=1, inputA=1f, done=0, myMax=af, maxValue=af
+#                  216 state=CHECK, next_state=CHECK, start=1, inputA=61, done=0, myMax=af, maxValue=af
+#                  226 state=CHECK, next_state=RESET, start=0, inputA=61, done=1, myMax=af, maxValue=af
+# Correct max (af) found
+#                  236 state=RESET, next_state=RESET, start=0, inputA=61, done=0, myMax=af, maxValue=af
+#                  246 state=RESET, next_state=CHECK, start=1, inputA=75, done=0, myMax=75, maxValue=af
+#                  256 state=CHECK, next_state=CHECK, start=1, inputA=f5, done=0, myMax=f5, maxValue=75
+#                  266 state=CHECK, next_state=CHECK, start=1, inputA=4a, done=0, myMax=f5, maxValue=f5
+#                  276 state=CHECK, next_state=CHECK, start=1, inputA=9f, done=0, myMax=f5, maxValue=f5
+#                  286 state=CHECK, next_state=CHECK, start=1, inputA=e6, done=0, myMax=f5, maxValue=f5
+#                  296 state=CHECK, next_state=CHECK, start=1, inputA=98, done=0, myMax=f5, maxValue=f5
+#                  306 state=CHECK, next_state=CHECK, start=1, inputA=48, done=0, myMax=f5, maxValue=f5
+#                  316 state=CHECK, next_state=CHECK, start=1, inputA=41, done=0, myMax=f5, maxValue=f5
+#                  326 state=CHECK, next_state=CHECK, start=1, inputA=38, done=0, myMax=f5, maxValue=f5
+#                  336 state=CHECK, next_state=CHECK, start=1, inputA=91, done=0, myMax=f5, maxValue=f5
+#                  346 state=CHECK, next_state=CHECK, start=1, inputA=e2, done=0, myMax=f5, maxValue=f5
+#                  356 state=CHECK, next_state=CHECK, start=1, inputA=8d, done=0, myMax=f5, maxValue=f5
+#                  366 state=CHECK, next_state=CHECK, start=1, inputA=b1, done=0, myMax=f5, maxValue=f5
+#                  376 state=CHECK, next_state=CHECK, start=1, inputA=ff, done=0, myMax=ff, maxValue=f5
+#                  386 state=CHECK, next_state=CHECK, start=1, inputA=38, done=0, myMax=ff, maxValue=ff
+#                  396 state=CHECK, next_state=CHECK, start=1, inputA=7d, done=0, myMax=ff, maxValue=ff
+#                  406 state=CHECK, next_state=CHECK, start=1, inputA=17, done=0, myMax=ff, maxValue=ff
+#                  416 state=CHECK, next_state=RESET, start=0, inputA=17, done=1, myMax=ff, maxValue=ff
+# Correct max (ff) found
+#                  426 state=RESET, next_state=RESET, start=0, inputA=17, done=0, myMax=ff, maxValue=ff
+#                  436 state=RESET, next_state=CHECK, start=1, inputA=f4, done=0, myMax=f4, maxValue=ff
+#                  446 state=CHECK, next_state=CHECK, start=1, inputA=61, done=0, myMax=f4, maxValue=f4
+#                  456 state=CHECK, next_state=CHECK, start=1, inputA=ad, done=0, myMax=f4, maxValue=f4
+#                  466 state=CHECK, next_state=CHECK, start=1, inputA=d0, done=0, myMax=f4, maxValue=f4
+#                  476 state=CHECK, next_state=CHECK, start=1, inputA=15, done=0, myMax=f4, maxValue=f4
+#                  486 state=CHECK, next_state=CHECK, start=1, inputA=00, done=0, myMax=f4, maxValue=f4
+#                  496 state=CHECK, next_state=CHECK, start=1, inputA=fe, done=0, myMax=fe, maxValue=f4
+#                  506 state=CHECK, next_state=CHECK, start=1, inputA=46, done=0, myMax=fe, maxValue=fe
+#                  516 state=CHECK, next_state=CHECK, start=1, inputA=f0, done=0, myMax=fe, maxValue=fe
+#                  526 state=CHECK, next_state=CHECK, start=1, inputA=bb, done=0, myMax=fe, maxValue=fe
+#                  536 state=CHECK, next_state=CHECK, start=1, inputA=a1, done=0, myMax=fe, maxValue=fe
+#                  546 state=CHECK, next_state=CHECK, start=1, inputA=6a, done=0, myMax=fe, maxValue=fe
+#                  556 state=CHECK, next_state=CHECK, start=1, inputA=88, done=0, myMax=fe, maxValue=fe
+#                  566 state=CHECK, next_state=CHECK, start=1, inputA=bc, done=0, myMax=fe, maxValue=fe
+#                  576 state=CHECK, next_state=CHECK, start=1, inputA=e1, done=0, myMax=fe, maxValue=fe
+#                  586 state=CHECK, next_state=CHECK, start=1, inputA=f4, done=0, myMax=fe, maxValue=fe
+#                  596 state=CHECK, next_state=CHECK, start=1, inputA=26, done=0, myMax=fe, maxValue=fe
+#                  606 state=CHECK, next_state=CHECK, start=1, inputA=5a, done=0, myMax=fe, maxValue=fe
+#                  616 state=CHECK, next_state=CHECK, start=1, inputA=9d, done=0, myMax=fe, maxValue=fe
+#                  626 state=CHECK, next_state=RESET, start=0, inputA=9d, done=1, myMax=fe, maxValue=fe
+# Correct max (fe) found
+#                  636 state=RESET, next_state=RESET, start=0, inputA=9d, done=0, myMax=fe, maxValue=fe
+#                  646 state=RESET, next_state=CHECK, start=1, inputA=b5, done=0, myMax=b5, maxValue=fe
+#                  656 state=CHECK, next_state=CHECK, start=1, inputA=bd, done=0, myMax=bd, maxValue=b5
+#                  666 state=CHECK, next_state=CHECK, start=1, inputA=72, done=0, myMax=bd, maxValue=bd
+#                  676 state=CHECK, next_state=CHECK, start=1, inputA=da, done=0, myMax=da, maxValue=bd
+#                  686 state=CHECK, next_state=CHECK, start=1, inputA=f6, done=0, myMax=f6, maxValue=da
+#                  696 state=CHECK, next_state=CHECK, start=1, inputA=1a, done=0, myMax=f6, maxValue=f6
+#                  706 state=CHECK, next_state=CHECK, start=1, inputA=0f, done=0, myMax=f6, maxValue=f6
+#                  716 state=CHECK, next_state=CHECK, start=1, inputA=21, done=0, myMax=f6, maxValue=f6
+#                  726 state=CHECK, next_state=CHECK, start=1, inputA=22, done=0, myMax=f6, maxValue=f6
+#                  736 state=CHECK, next_state=CHECK, start=1, inputA=89, done=0, myMax=f6, maxValue=f6
+#                  746 state=CHECK, next_state=CHECK, start=1, inputA=f7, done=0, myMax=f7, maxValue=f6
+#                  756 state=CHECK, next_state=CHECK, start=1, inputA=a9, done=0, myMax=f7, maxValue=f7
+#                  766 state=CHECK, next_state=CHECK, start=1, inputA=c5, done=0, myMax=f7, maxValue=f7
+#                  776 state=CHECK, next_state=CHECK, start=1, inputA=d1, done=0, myMax=f7, maxValue=f7
+#                  786 state=CHECK, next_state=CHECK, start=1, inputA=63, done=0, myMax=f7, maxValue=f7
+#                  796 state=CHECK, next_state=CHECK, start=1, inputA=33, done=0, myMax=f7, maxValue=f7
+#                  806 state=CHECK, next_state=RESET, start=0, inputA=33, done=1, myMax=f7, maxValue=f7
+# Correct max (f7) found
+#                  816 state=RESET, next_state=RESET, start=0, inputA=33, done=0, myMax=f7, maxValue=f7
+#                  826 state=RESET, next_state=CHECK, start=1, inputA=dc, done=0, myMax=dc, maxValue=f7
+#                  836 state=CHECK, next_state=CHECK, start=1, inputA=12, done=0, myMax=dc, maxValue=dc
+#                  846 state=CHECK, next_state=CHECK, start=1, inputA=1c, done=0, myMax=dc, maxValue=dc
+#                  856 state=CHECK, next_state=CHECK, start=1, inputA=6c, done=0, myMax=dc, maxValue=dc
+#                  866 state=CHECK, next_state=CHECK, start=1, inputA=44, done=0, myMax=dc, maxValue=dc
+#                  876 state=CHECK, next_state=CHECK, start=1, inputA=e4, done=0, myMax=e4, maxValue=dc
+#                  886 state=CHECK, next_state=CHECK, start=1, inputA=33, done=0, myMax=e4, maxValue=e4
+#                  896 state=CHECK, next_state=CHECK, start=1, inputA=b9, done=0, myMax=e4, maxValue=e4
+#                  906 state=CHECK, next_state=CHECK, start=1, inputA=83, done=0, myMax=e4, maxValue=e4
+#                  916 state=CHECK, next_state=CHECK, start=1, inputA=bb, done=0, myMax=e4, maxValue=e4
+#                  926 state=CHECK, next_state=CHECK, start=1, inputA=10, done=0, myMax=e4, maxValue=e4
+#                  936 state=CHECK, next_state=CHECK, start=1, inputA=d7, done=0, myMax=e4, maxValue=e4
+#                  946 state=CHECK, next_state=CHECK, start=1, inputA=da, done=0, myMax=e4, maxValue=e4
+#                  956 state=CHECK, next_state=CHECK, start=1, inputA=6e, done=0, myMax=e4, maxValue=e4
+#                  966 state=CHECK, next_state=CHECK, start=1, inputA=cf, done=0, myMax=e4, maxValue=e4
+#                  976 state=CHECK, next_state=CHECK, start=1, inputA=ce, done=0, myMax=e4, maxValue=e4
+#                  986 state=CHECK, next_state=RESET, start=0, inputA=ce, done=1, myMax=e4, maxValue=e4
+# Correct max (e4) found
+#                  996 state=RESET, next_state=RESET, start=0, inputA=ce, done=0, myMax=e4, maxValue=e4
+#                 1006 state=RESET, next_state=CHECK, start=1, inputA=ba, done=0, myMax=ba, maxValue=e4
+#                 1016 state=CHECK, next_state=CHECK, start=1, inputA=4a, done=0, myMax=ba, maxValue=ba
+#                 1026 state=CHECK, next_state=CHECK, start=1, inputA=6d, done=0, myMax=ba, maxValue=ba
+#                 1036 state=CHECK, next_state=CHECK, start=1, inputA=99, done=0, myMax=ba, maxValue=ba
+#                 1046 state=CHECK, next_state=CHECK, start=1, inputA=b1, done=0, myMax=ba, maxValue=ba
+#                 1056 state=CHECK, next_state=CHECK, start=1, inputA=a6, done=0, myMax=ba, maxValue=ba
+#                 1066 state=CHECK, next_state=RESET, start=0, inputA=a6, done=1, myMax=ba, maxValue=ba
+# Correct max (ba) found
+#                 1076 state=RESET, next_state=RESET, start=0, inputA=a6, done=0, myMax=ba, maxValue=ba
+#                 1086 state=RESET, next_state=CHECK, start=1, inputA=58, done=0, myMax=58, maxValue=ba
+#                 1096 state=CHECK, next_state=CHECK, start=1, inputA=90, done=0, myMax=90, maxValue=58
+#                 1106 state=CHECK, next_state=CHECK, start=1, inputA=20, done=0, myMax=90, maxValue=90
+#                 1116 state=CHECK, next_state=CHECK, start=1, inputA=ec, done=0, myMax=ec, maxValue=90
+#                 1126 state=CHECK, next_state=CHECK, start=1, inputA=02, done=0, myMax=ec, maxValue=ec
+#                 1136 state=CHECK, next_state=CHECK, start=1, inputA=6e, done=0, myMax=ec, maxValue=ec
+#                 1146 state=CHECK, next_state=CHECK, start=1, inputA=9c, done=0, myMax=ec, maxValue=ec
+#                 1156 state=CHECK, next_state=CHECK, start=1, inputA=a7, done=0, myMax=ec, maxValue=ec
+#                 1166 state=CHECK, next_state=CHECK, start=1, inputA=f6, done=0, myMax=f6, maxValue=ec
+#                 1176 state=CHECK, next_state=CHECK, start=1, inputA=61, done=0, myMax=f6, maxValue=f6
+#                 1186 state=CHECK, next_state=CHECK, start=1, inputA=b3, done=0, myMax=f6, maxValue=f6
+#                 1196 state=CHECK, next_state=CHECK, start=1, inputA=fc, done=0, myMax=fc, maxValue=f6
+#                 1206 state=CHECK, next_state=CHECK, start=1, inputA=39, done=0, myMax=fc, maxValue=fc
+#                 1216 state=CHECK, next_state=CHECK, start=1, inputA=5c, done=0, myMax=fc, maxValue=fc
+#                 1226 state=CHECK, next_state=CHECK, start=1, inputA=b5, done=0, myMax=fc, maxValue=fc
+#                 1236 state=CHECK, next_state=CHECK, start=1, inputA=7a, done=0, myMax=fc, maxValue=fc
+#                 1246 state=CHECK, next_state=CHECK, start=1, inputA=78, done=0, myMax=fc, maxValue=fc
+#                 1256 state=CHECK, next_state=CHECK, start=1, inputA=dd, done=0, myMax=fc, maxValue=fc
+#                 1266 state=CHECK, next_state=RESET, start=0, inputA=dd, done=1, myMax=fc, maxValue=fc
+# Correct max (fc) found
+#                 1276 state=RESET, next_state=RESET, start=0, inputA=dd, done=0, myMax=fc, maxValue=fc
+#                 1286 state=RESET, next_state=CHECK, start=1, inputA=c5, done=0, myMax=c5, maxValue=fc
+#                 1296 state=CHECK, next_state=CHECK, start=1, inputA=06, done=0, myMax=c5, maxValue=c5
+#                 1306 state=CHECK, next_state=CHECK, start=1, inputA=04, done=0, myMax=c5, maxValue=c5
+#                 1316 state=CHECK, next_state=CHECK, start=1, inputA=29, done=0, myMax=c5, maxValue=c5
+#                 1326 state=CHECK, next_state=CHECK, start=1, inputA=0d, done=0, myMax=c5, maxValue=c5
+#                 1336 state=CHECK, next_state=CHECK, start=1, inputA=29, done=0, myMax=c5, maxValue=c5
+#                 1346 state=CHECK, next_state=CHECK, start=1, inputA=f7, done=0, myMax=f7, maxValue=c5
+#                 1356 state=CHECK, next_state=CHECK, start=1, inputA=46, done=0, myMax=f7, maxValue=f7
+#                 1366 state=CHECK, next_state=CHECK, start=1, inputA=e4, done=0, myMax=f7, maxValue=f7
+#                 1376 state=CHECK, next_state=CHECK, start=1, inputA=5e, done=0, myMax=f7, maxValue=f7
+#                 1386 state=CHECK, next_state=CHECK, start=1, inputA=7b, done=0, myMax=f7, maxValue=f7
+#                 1396 state=CHECK, next_state=CHECK, start=1, inputA=4f, done=0, myMax=f7, maxValue=f7
+#                 1406 state=CHECK, next_state=CHECK, start=1, inputA=b5, done=0, myMax=f7, maxValue=f7
+#                 1416 state=CHECK, next_state=CHECK, start=1, inputA=3b, done=0, myMax=f7, maxValue=f7
+#                 1426 state=CHECK, next_state=CHECK, start=1, inputA=50, done=0, myMax=f7, maxValue=f7
+#                 1436 state=CHECK, next_state=CHECK, start=1, inputA=dd, done=0, myMax=f7, maxValue=f7
+#                 1446 state=CHECK, next_state=CHECK, start=1, inputA=11, done=0, myMax=f7, maxValue=f7
+#                 1456 state=CHECK, next_state=CHECK, start=1, inputA=15, done=0, myMax=f7, maxValue=f7
+#                 1466 state=CHECK, next_state=CHECK, start=1, inputA=0b, done=0, myMax=f7, maxValue=f7
+#                 1476 state=CHECK, next_state=RESET, start=0, inputA=0b, done=1, myMax=f7, maxValue=f7
+# Correct max (f7) found
+#                 1486 state=RESET, next_state=RESET, start=0, inputA=0b, done=0, myMax=f7, maxValue=f7
+#                 1496 state=RESET, next_state=CHECK, start=1, inputA=86, done=0, myMax=86, maxValue=f7
+#                 1506 state=CHECK, next_state=CHECK, start=1, inputA=28, done=0, myMax=86, maxValue=86
+#                 1516 state=CHECK, next_state=CHECK, start=1, inputA=5f, done=0, myMax=86, maxValue=86
+#                 1526 state=CHECK, next_state=CHECK, start=1, inputA=ef, done=0, myMax=ef, maxValue=86
+#                 1536 state=CHECK, next_state=CHECK, start=1, inputA=89, done=0, myMax=ef, maxValue=ef
+#                 1546 state=CHECK, next_state=CHECK, start=1, inputA=d1, done=0, myMax=ef, maxValue=ef
+#                 1556 state=CHECK, next_state=CHECK, start=1, inputA=71, done=0, myMax=ef, maxValue=ef
+#                 1566 state=CHECK, next_state=CHECK, start=1, inputA=80, done=0, myMax=ef, maxValue=ef
+#                 1576 state=CHECK, next_state=CHECK, start=1, inputA=d1, done=0, myMax=ef, maxValue=ef
+#                 1586 state=CHECK, next_state=CHECK, start=1, inputA=5c, done=0, myMax=ef, maxValue=ef
+#                 1596 state=CHECK, next_state=CHECK, start=1, inputA=87, done=0, myMax=ef, maxValue=ef
+#                 1606 state=CHECK, next_state=CHECK, start=1, inputA=e6, done=0, myMax=ef, maxValue=ef
+#                 1616 state=CHECK, next_state=CHECK, start=1, inputA=45, done=0, myMax=ef, maxValue=ef
+#                 1626 state=CHECK, next_state=CHECK, start=1, inputA=2d, done=0, myMax=ef, maxValue=ef
+#                 1636 state=CHECK, next_state=CHECK, start=1, inputA=fb, done=0, myMax=fb, maxValue=ef
+#                 1646 state=CHECK, next_state=CHECK, start=1, inputA=fd, done=0, myMax=fd, maxValue=fb
+#                 1656 state=CHECK, next_state=CHECK, start=1, inputA=25, done=0, myMax=fd, maxValue=fd
+#                 1666 state=CHECK, next_state=CHECK, start=1, inputA=0d, done=0, myMax=fd, maxValue=fd
+#                 1676 state=CHECK, next_state=RESET, start=0, inputA=0d, done=1, myMax=fd, maxValue=fd
+# Correct max (fd) found
+#                 1686 state=RESET, next_state=RESET, start=0, inputA=0d, done=0, myMax=fd, maxValue=fd
+#                 1696 state=RESET, next_state=CHECK, start=1, inputA=a3, done=0, myMax=a3, maxValue=fd
+#                 1706 state=CHECK, next_state=CHECK, start=1, inputA=98, done=0, myMax=a3, maxValue=a3
+#                 1716 state=CHECK, next_state=CHECK, start=1, inputA=38, done=0, myMax=a3, maxValue=a3
+#                 1726 state=CHECK, next_state=CHECK, start=1, inputA=66, done=0, myMax=a3, maxValue=a3
+#                 1736 state=CHECK, next_state=CHECK, start=1, inputA=27, done=0, myMax=a3, maxValue=a3
+#                 1746 state=CHECK, next_state=CHECK, start=1, inputA=8d, done=0, myMax=a3, maxValue=a3
+#                 1756 state=CHECK, next_state=CHECK, start=1, inputA=5d, done=0, myMax=a3, maxValue=a3
+#                 1766 state=CHECK, next_state=CHECK, start=1, inputA=f5, done=0, myMax=f5, maxValue=a3
+#                 1776 state=CHECK, next_state=CHECK, start=1, inputA=0f, done=0, myMax=f5, maxValue=f5
+#                 1786 state=CHECK, next_state=CHECK, start=1, inputA=cf, done=0, myMax=f5, maxValue=f5
+#                 1796 state=CHECK, next_state=CHECK, start=1, inputA=66, done=0, myMax=f5, maxValue=f5
+#                 1806 state=CHECK, next_state=CHECK, start=1, inputA=c9, done=0, myMax=f5, maxValue=f5
+#                 1816 state=CHECK, next_state=CHECK, start=1, inputA=70, done=0, myMax=f5, maxValue=f5
+#                 1826 state=CHECK, next_state=CHECK, start=1, inputA=1d, done=0, myMax=f5, maxValue=f5
+#                 1836 state=CHECK, next_state=RESET, start=0, inputA=1d, done=1, myMax=f5, maxValue=f5
+# Correct max (f5) found
+#                 1846 state=RESET, next_state=RESET, start=0, inputA=1d, done=0, myMax=f5, maxValue=f5
+#                 1856 state=RESET, next_state=CHECK, start=1, inputA=1f, done=0, myMax=1f, maxValue=f5
+#                 1866 state=CHECK, next_state=CHECK, start=1, inputA=00, done=0, myMax=1f, maxValue=1f
+#                 1876 state=CHECK, next_state=CHECK, start=1, inputA=a3, done=0, myMax=a3, maxValue=1f
+#                 1886 state=CHECK, next_state=CHECK, start=1, inputA=27, done=0, myMax=a3, maxValue=a3
+#                 1896 state=CHECK, next_state=CHECK, start=1, inputA=26, done=0, myMax=a3, maxValue=a3
+#                 1906 state=CHECK, next_state=CHECK, start=1, inputA=70, done=0, myMax=a3, maxValue=a3
+#                 1916 state=CHECK, next_state=CHECK, start=1, inputA=4b, done=0, myMax=a3, maxValue=a3
+#                 1926 state=CHECK, next_state=CHECK, start=1, inputA=a8, done=0, myMax=a8, maxValue=a3
+#                 1936 state=CHECK, next_state=CHECK, start=1, inputA=ee, done=0, myMax=ee, maxValue=a8
+#                 1946 state=CHECK, next_state=CHECK, start=1, inputA=ae, done=0, myMax=ee, maxValue=ee
+#                 1956 state=CHECK, next_state=CHECK, start=1, inputA=1d, done=0, myMax=ee, maxValue=ee
+#                 1966 state=CHECK, next_state=CHECK, start=1, inputA=2b, done=0, myMax=ee, maxValue=ee
+#                 1976 state=CHECK, next_state=CHECK, start=1, inputA=3a, done=0, myMax=ee, maxValue=ee
+#                 1986 state=CHECK, next_state=CHECK, start=1, inputA=8b, done=0, myMax=ee, maxValue=ee
+#                 1996 state=CHECK, next_state=CHECK, start=1, inputA=18, done=0, myMax=ee, maxValue=ee
+#                 2006 state=CHECK, next_state=CHECK, start=1, inputA=5a, done=0, myMax=ee, maxValue=ee
+#                 2016 state=CHECK, next_state=CHECK, start=1, inputA=cc, done=0, myMax=ee, maxValue=ee
+#                 2026 state=CHECK, next_state=RESET, start=0, inputA=cc, done=1, myMax=ee, maxValue=ee
+# Correct max (ee) found
+#                 2036 state=RESET, next_state=RESET, start=0, inputA=cc, done=0, myMax=ee, maxValue=ee
+#                 2046 state=RESET, next_state=CHECK, start=1, inputA=5a, done=0, myMax=5a, maxValue=ee
+#                 2056 state=CHECK, next_state=CHECK, start=1, inputA=13, done=0, myMax=5a, maxValue=5a
+#                 2066 state=CHECK, next_state=CHECK, start=1, inputA=4a, done=0, myMax=5a, maxValue=5a
+#                 2076 state=CHECK, next_state=CHECK, start=1, inputA=5d, done=0, myMax=5d, maxValue=5a
+#                 2086 state=CHECK, next_state=CHECK, start=1, inputA=ed, done=0, myMax=ed, maxValue=5d
+#                 2096 state=CHECK, next_state=CHECK, start=1, inputA=24, done=0, myMax=ed, maxValue=ed
+#                 2106 state=CHECK, next_state=CHECK, start=1, inputA=3e, done=0, myMax=ed, maxValue=ed
+#                 2116 state=CHECK, next_state=CHECK, start=1, inputA=f3, done=0, myMax=f3, maxValue=ed
+#                 2126 state=CHECK, next_state=CHECK, start=1, inputA=c2, done=0, myMax=f3, maxValue=f3
+#                 2136 state=CHECK, next_state=CHECK, start=1, inputA=76, done=0, myMax=f3, maxValue=f3
+#                 2146 state=CHECK, next_state=CHECK, start=1, inputA=1a, done=0, myMax=f3, maxValue=f3
+#                 2156 state=CHECK, next_state=CHECK, start=1, inputA=69, done=0, myMax=f3, maxValue=f3
+#                 2166 state=CHECK, next_state=RESET, start=0, inputA=69, done=1, myMax=f3, maxValue=f3
+# Correct max (f3) found
+#                 2176 state=RESET, next_state=RESET, start=0, inputA=69, done=0, myMax=f3, maxValue=f3
+#                 2186 state=RESET, next_state=CHECK, start=1, inputA=d3, done=0, myMax=d3, maxValue=f3
+#                 2196 state=CHECK, next_state=CHECK, start=1, inputA=2e, done=0, myMax=d3, maxValue=d3
+#                 2206 state=CHECK, next_state=CHECK, start=1, inputA=e8, done=0, myMax=e8, maxValue=d3
+#                 2216 state=CHECK, next_state=CHECK, start=1, inputA=ee, done=0, myMax=ee, maxValue=e8
+#                 2226 state=CHECK, next_state=CHECK, start=1, inputA=94, done=0, myMax=ee, maxValue=ee
+#                 2236 state=CHECK, next_state=CHECK, start=1, inputA=a6, done=0, myMax=ee, maxValue=ee
+#                 2246 state=CHECK, next_state=CHECK, start=1, inputA=04, done=0, myMax=ee, maxValue=ee
+#                 2256 state=CHECK, next_state=CHECK, start=1, inputA=78, done=0, myMax=ee, maxValue=ee
+#                 2266 state=CHECK, next_state=CHECK, start=1, inputA=40, done=0, myMax=ee, maxValue=ee
+#                 2276 state=CHECK, next_state=CHECK, start=1, inputA=2d, done=0, myMax=ee, maxValue=ee
+#                 2286 state=CHECK, next_state=CHECK, start=1, inputA=88, done=0, myMax=ee, maxValue=ee
+#                 2296 state=CHECK, next_state=CHECK, start=1, inputA=fb, done=0, myMax=fb, maxValue=ee
+#                 2306 state=CHECK, next_state=CHECK, start=1, inputA=5e, done=0, myMax=fb, maxValue=fb
+#                 2316 state=CHECK, next_state=CHECK, start=1, inputA=79, done=0, myMax=fb, maxValue=fb
+#                 2326 state=CHECK, next_state=RESET, start=0, inputA=79, done=1, myMax=fb, maxValue=fb
+# Correct max (fb) found
+#                 2336 state=RESET, next_state=RESET, start=0, inputA=79, done=0, myMax=fb, maxValue=fb
+#                 2346 state=RESET, next_state=CHECK, start=1, inputA=f6, done=0, myMax=f6, maxValue=fb
+#                 2356 state=CHECK, next_state=CHECK, start=1, inputA=64, done=0, myMax=f6, maxValue=f6
+#                 2366 state=CHECK, next_state=CHECK, start=1, inputA=2e, done=0, myMax=f6, maxValue=f6
+#                 2376 state=CHECK, next_state=CHECK, start=1, inputA=98, done=0, myMax=f6, maxValue=f6
+#                 2386 state=CHECK, next_state=CHECK, start=1, inputA=66, done=0, myMax=f6, maxValue=f6
+#                 2396 state=CHECK, next_state=CHECK, start=1, inputA=94, done=0, myMax=f6, maxValue=f6
+#                 2406 state=CHECK, next_state=CHECK, start=1, inputA=af, done=0, myMax=f6, maxValue=f6
+#                 2416 state=CHECK, next_state=CHECK, start=1, inputA=8e, done=0, myMax=f6, maxValue=f6
+#                 2426 state=CHECK, next_state=CHECK, start=1, inputA=dd, done=0, myMax=f6, maxValue=f6
+#                 2436 state=CHECK, next_state=CHECK, start=1, inputA=b5, done=0, myMax=f6, maxValue=f6
+#                 2446 state=CHECK, next_state=CHECK, start=1, inputA=14, done=0, myMax=f6, maxValue=f6
+#                 2456 state=CHECK, next_state=CHECK, start=1, inputA=fe, done=0, myMax=fe, maxValue=f6
+#                 2466 state=CHECK, next_state=CHECK, start=1, inputA=cd, done=0, myMax=fe, maxValue=fe
+#                 2476 state=CHECK, next_state=CHECK, start=1, inputA=e3, done=0, myMax=fe, maxValue=fe
+#                 2486 state=CHECK, next_state=CHECK, start=1, inputA=d8, done=0, myMax=fe, maxValue=fe
+#                 2496 state=CHECK, next_state=CHECK, start=1, inputA=19, done=0, myMax=fe, maxValue=fe
+#                 2506 state=CHECK, next_state=RESET, start=0, inputA=19, done=1, myMax=fe, maxValue=fe
+# Correct max (fe) found
+#                 2516 state=RESET, next_state=RESET, start=0, inputA=19, done=0, myMax=fe, maxValue=fe
+#                 2526 state=RESET, next_state=CHECK, start=1, inputA=8f, done=0, myMax=8f, maxValue=fe
+#                 2536 state=CHECK, next_state=CHECK, start=1, inputA=46, done=0, myMax=8f, maxValue=8f
+#                 2546 state=CHECK, next_state=CHECK, start=1, inputA=fa, done=0, myMax=fa, maxValue=8f
+#                 2556 state=CHECK, next_state=CHECK, start=1, inputA=d3, done=0, myMax=fa, maxValue=fa
+#                 2566 state=CHECK, next_state=CHECK, start=1, inputA=89, done=0, myMax=fa, maxValue=fa
+#                 2576 state=CHECK, next_state=CHECK, start=1, inputA=cf, done=0, myMax=fa, maxValue=fa
+#                 2586 state=CHECK, next_state=CHECK, start=1, inputA=fe, done=0, myMax=fe, maxValue=fa
+#                 2596 state=CHECK, next_state=CHECK, start=1, inputA=3a, done=0, myMax=fe, maxValue=fe
+#                 2606 state=CHECK, next_state=CHECK, start=1, inputA=f4, done=0, myMax=fe, maxValue=fe
+#                 2616 state=CHECK, next_state=CHECK, start=1, inputA=90, done=0, myMax=fe, maxValue=fe
+#                 2626 state=CHECK, next_state=CHECK, start=1, inputA=b6, done=0, myMax=fe, maxValue=fe
+#                 2636 state=CHECK, next_state=CHECK, start=1, inputA=27, done=0, myMax=fe, maxValue=fe
+#                 2646 state=CHECK, next_state=CHECK, start=1, inputA=ed, done=0, myMax=fe, maxValue=fe
+#                 2656 state=CHECK, next_state=CHECK, start=1, inputA=c1, done=0, myMax=fe, maxValue=fe
+#                 2666 state=CHECK, next_state=CHECK, start=1, inputA=ab, done=0, myMax=fe, maxValue=fe
+#                 2676 state=CHECK, next_state=CHECK, start=1, inputA=6e, done=0, myMax=fe, maxValue=fe
+#                 2686 state=CHECK, next_state=CHECK, start=1, inputA=9d, done=0, myMax=fe, maxValue=fe
+#                 2696 state=CHECK, next_state=CHECK, start=1, inputA=54, done=0, myMax=fe, maxValue=fe
+#                 2706 state=CHECK, next_state=RESET, start=0, inputA=54, done=1, myMax=fe, maxValue=fe
+# Correct max (fe) found
+#                 2716 state=RESET, next_state=RESET, start=0, inputA=54, done=0, myMax=fe, maxValue=fe
+#                 2726 state=RESET, next_state=CHECK, start=1, inputA=a2, done=0, myMax=a2, maxValue=fe
+#                 2736 state=CHECK, next_state=CHECK, start=1, inputA=00, done=0, myMax=a2, maxValue=a2
+#                 2746 state=CHECK, next_state=CHECK, start=1, inputA=3c, done=0, myMax=a2, maxValue=a2
+#                 2756 state=CHECK, next_state=CHECK, start=1, inputA=d8, done=0, myMax=d8, maxValue=a2
+#                 2766 state=CHECK, next_state=CHECK, start=1, inputA=fe, done=0, myMax=fe, maxValue=d8
+#                 2776 state=CHECK, next_state=CHECK, start=1, inputA=cd, done=0, myMax=fe, maxValue=fe
+#                 2786 state=CHECK, next_state=CHECK, start=1, inputA=30, done=0, myMax=fe, maxValue=fe
+#                 2796 state=CHECK, next_state=CHECK, start=1, inputA=1f, done=0, myMax=fe, maxValue=fe
+#                 2806 state=CHECK, next_state=CHECK, start=1, inputA=9b, done=0, myMax=fe, maxValue=fe
+#                 2816 state=CHECK, next_state=CHECK, start=1, inputA=a6, done=0, myMax=fe, maxValue=fe
+#                 2826 state=CHECK, next_state=CHECK, start=1, inputA=4c, done=0, myMax=fe, maxValue=fe
+#                 2836 state=CHECK, next_state=CHECK, start=1, inputA=cc, done=0, myMax=fe, maxValue=fe
+#                 2846 state=CHECK, next_state=CHECK, start=1, inputA=42, done=0, myMax=fe, maxValue=fe
+#                 2856 state=CHECK, next_state=RESET, start=0, inputA=42, done=1, myMax=fe, maxValue=fe
+# Correct max (fe) found
+#                 2866 state=RESET, next_state=RESET, start=0, inputA=42, done=0, myMax=fe, maxValue=fe
+#                 2876 state=RESET, next_state=CHECK, start=1, inputA=fd, done=0, myMax=fd, maxValue=fe
+#                 2886 state=CHECK, next_state=CHECK, start=1, inputA=59, done=0, myMax=fd, maxValue=fd
+#                 2896 state=CHECK, next_state=CHECK, start=1, inputA=89, done=0, myMax=fd, maxValue=fd
+#                 2906 state=CHECK, next_state=CHECK, start=1, inputA=f3, done=0, myMax=fd, maxValue=fd
+#                 2916 state=CHECK, next_state=CHECK, start=1, inputA=2a, done=0, myMax=fd, maxValue=fd
+#                 2926 state=CHECK, next_state=CHECK, start=1, inputA=e8, done=0, myMax=fd, maxValue=fd
+#                 2936 state=CHECK, next_state=CHECK, start=1, inputA=fa, done=0, myMax=fd, maxValue=fd
+#                 2946 state=CHECK, next_state=CHECK, start=1, inputA=a2, done=0, myMax=fd, maxValue=fd
+#                 2956 state=CHECK, next_state=CHECK, start=1, inputA=6f, done=0, myMax=fd, maxValue=fd
+#                 2966 state=CHECK, next_state=CHECK, start=1, inputA=f8, done=0, myMax=fd, maxValue=fd
+#                 2976 state=CHECK, next_state=CHECK, start=1, inputA=a2, done=0, myMax=fd, maxValue=fd
+#                 2986 state=CHECK, next_state=CHECK, start=1, inputA=1e, done=0, myMax=fd, maxValue=fd
+#                 2996 state=CHECK, next_state=CHECK, start=1, inputA=97, done=0, myMax=fd, maxValue=fd
+#                 3006 state=CHECK, next_state=CHECK, start=1, inputA=43, done=0, myMax=fd, maxValue=fd
+#                 3016 state=CHECK, next_state=CHECK, start=1, inputA=ae, done=0, myMax=fd, maxValue=fd
+#                 3026 state=CHECK, next_state=CHECK, start=1, inputA=55, done=0, myMax=fd, maxValue=fd
+#                 3036 state=CHECK, next_state=CHECK, start=1, inputA=7a, done=0, myMax=fd, maxValue=fd
+#                 3046 state=CHECK, next_state=CHECK, start=1, inputA=d6, done=0, myMax=fd, maxValue=fd
+#                 3056 state=CHECK, next_state=RESET, start=0, inputA=d6, done=1, myMax=fd, maxValue=fd
+# Correct max (fd) found
+#                 3066 state=RESET, next_state=RESET, start=0, inputA=d6, done=0, myMax=fd, maxValue=fd
+#                 3076 state=RESET, next_state=CHECK, start=1, inputA=e9, done=0, myMax=e9, maxValue=fd
+#                 3086 state=CHECK, next_state=CHECK, start=1, inputA=cf, done=0, myMax=e9, maxValue=e9
+#                 3096 state=CHECK, next_state=CHECK, start=1, inputA=3b, done=0, myMax=e9, maxValue=e9
+#                 3106 state=CHECK, next_state=CHECK, start=1, inputA=0a, done=0, myMax=e9, maxValue=e9
+#                 3116 state=CHECK, next_state=CHECK, start=1, inputA=84, done=0, myMax=e9, maxValue=e9
+#                 3126 state=CHECK, next_state=CHECK, start=1, inputA=1c, done=0, myMax=e9, maxValue=e9
+#                 3136 state=CHECK, next_state=CHECK, start=1, inputA=90, done=0, myMax=e9, maxValue=e9
+#                 3146 state=CHECK, next_state=CHECK, start=1, inputA=22, done=0, myMax=e9, maxValue=e9
+#                 3156 state=CHECK, next_state=CHECK, start=1, inputA=6e, done=0, myMax=e9, maxValue=e9
+#                 3166 state=CHECK, next_state=CHECK, start=1, inputA=2d, done=0, myMax=e9, maxValue=e9
+#                 3176 state=CHECK, next_state=CHECK, start=1, inputA=3d, done=0, myMax=e9, maxValue=e9
+#                 3186 state=CHECK, next_state=CHECK, start=1, inputA=87, done=0, myMax=e9, maxValue=e9
+#                 3196 state=CHECK, next_state=CHECK, start=1, inputA=63, done=0, myMax=e9, maxValue=e9
+#                 3206 state=CHECK, next_state=CHECK, start=1, inputA=ae, done=0, myMax=e9, maxValue=e9
+#                 3216 state=CHECK, next_state=RESET, start=0, inputA=ae, done=1, myMax=e9, maxValue=e9
+# Correct max (e9) found
+#                 3226 state=RESET, next_state=RESET, start=0, inputA=ae, done=0, myMax=e9, maxValue=e9
+# Congratulations!  Your implementation passes the testbench
+# End simulation of findMax test - Drew Seidel (dseidel@pdx.edu)
+# 
+# ** Note: $stop    : N:/ece508/dseidel/hw2/prob2/tb_findMax.sv(100)
+#    Time: 3236 ns  Iteration: 1  Instance: /tb_findMax
+# Break in Module tb_findMax at N:/ece508/dseidel/hw2/prob2/tb_findMax.sv line 100
